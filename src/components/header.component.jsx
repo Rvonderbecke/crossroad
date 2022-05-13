@@ -1,29 +1,28 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
 //my stuff
 import Navigation from './navigation.component';
-import { ReactComponent as CrLogo } from '../assets/images/Crossroads-Logo_No-Name.svg';
+import { ReactComponent as CrLogo } from '../assets/images/CR_Logo.svg';
+import { ReactComponent as CrLogoBar } from '../assets/images/navBar.svg';
 import DropBox from './dropbox.component';
 
 const Header = () => {
+	const [showDrop, setShowDrop] = useState(false);
 	return (
 		<Fragment>
-			<div
-				className='header-container'
-				style={{
-					display: 'flex',
-					justifyContent: 'space-between',
-					borderBottom: '1px solid black',
-				}}>
-				<div className='logoBox' style={{ display: 'flex' }}>
-					
+			<div className='header-container'>
+				<div className='logoBox'>
+					<div className='innerBox'>
 						<CrLogo className='logo' />
-					
-					<span>Crossroad Family Center</span>
+						<CrLogoBar className='logoBar' />
+					</div>
+					<h1>Crossroad Family Center</h1>
+					<div className='nav'>
+						{showDrop && <DropBox />}
+						<Navigation />
+					</div>
 				</div>
-				<DropBox />
-				<Navigation />
 			</div>
 			<Outlet />
 		</Fragment>

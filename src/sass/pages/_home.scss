@@ -1,0 +1,39 @@
+.header-container {
+	max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 85vh;
+	margin-top: 2rem;
+
+	h1 {
+		margin-left: 18rem;
+		font-family: $font-primary-heading;
+		font-weight: 700;
+		font-size: 1.5rem;
+		width: 50rem;
+	}
+	.logoBox {
+		flex-direction: row;
+		width: 100%;
+
+		.logo {
+			width: 10%;
+			margin: 2rem 0 0 2rem;
+			position: absolute;
+			z-index: 1;
+		}
+
+		.logoBar {
+			width: 100%;
+			transform: translateY(6.9rem);
+			position: relative;
+		}
+        .nav{
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            top
+        }
+	}
+}
