@@ -1,0 +1,54 @@
+.dropBox-label {
+  transform: translate(-11rem, 1.9rem);
+  padding: 0;
+  margin: 0;
+span {
+    font-family: $font-primary-paragraph;
+    font-size: 1.33rem;
+    color: $color-white;
+
+    &:hover {
+        color: lightgray;
+       
+    }
+    
+}
+}
+
+.dropbox-container {
+  
+  position: fixed;
+  width: 10rem;
+  margin-top: .1rem;
+  transform: translateX(-3.5rem);
+
+}
+.dropnavitems-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 15rem;
+  border: .05rem solid black;
+  height: 6rem;
+  background-color: white;
+  border-radius: .5rem;
+  padding: .5rem .5rem .5rem;
+  box-shadow: .2rem .2rem .6rem rgba($color-black, 0.4)
+ 
+}
+.links {
+  text-decoration: none;
+  width: 100%;
+  color: $color-grey-dark;
+  font-family: $font-primary-paragraph;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  padding: 2%;
+  margin: 0;
+
+  &:hover{
+    background-color: $color-primary-blue;
+    color: white;
+  }
+}

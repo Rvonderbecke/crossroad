@@ -83,22 +83,6 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
 export const onAuthStateChangedListener = (callback) => {
 	onAuthStateChanged(auth, callback);
 	
-}
+};
 
 //get data from firestore
-export const getBillsAndDocuments = async () => {
-	const collectionRef = collection(db, 'users');
-	const q = query(collectionRef);
-
-	const querySnapshot = await getDocs(q);
-	const billMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-		const { bills } = docSnapshot.data();
-		return bills;
-	}, {});
-	return billMap;
-};
-//senduserupdates 
-
-export const addNewUserBill =async () => {
-	
-}

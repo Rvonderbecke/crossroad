@@ -17,9 +17,12 @@ const Header = () => {
 						<CrLogo className='logo' />
 						<CrLogoBar className='logoBar' />
 					</div>
-					<h1>Crossroad Family Center</h1>
 					<div className='nav'>
-						{showDrop && <DropBox />}
+						<h1>Crossroad Family Center</h1>
+						<div className='dropBox-label'>
+							<span>Programs &#11167;</span>
+							{showDrop && <DropBox />}
+						</div>
 						<Navigation />
 					</div>
 				</div>
