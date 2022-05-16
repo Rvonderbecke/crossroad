@@ -8,20 +8,18 @@ span {
     color: $color-white;
 
     &:hover {
-        color: lightgray;
-       
+        color: $color-primary-blue;
+        cursor: pointer;
     }
     
 }
 }
 
 .dropbox-container {
-  
   position: fixed;
   width: 10rem;
   margin-top: .1rem;
   transform: translateX(-3.5rem);
-
 }
 .dropnavitems-container {
   display: flex;
