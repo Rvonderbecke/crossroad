@@ -1,6 +1,7 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/userContext';
-import { createAuthUserWithEmailAndPassword } from '../util/fireBase';
+import { createAuthUserWithEmailAndPassword, logUserOut, signInAuthWithEmailAndPassword, addNewUserToUsersDb
+} from '../util/fireBase';
 const emptyUser = {
     fullName: '',
     email: '',
@@ -10,7 +11,7 @@ const emptyUser = {
 
 const Auth = () => {
 	const [formData, setForm] = useState(emptyUser);
-    const { setUser } = useContext(UserContext);
+    const { currentUser, setUser } = useContext(UserContext);
     
 	const { fullName, email, password, confirmPassword } = formData;
 	
@@ -21,10 +22,24 @@ const Auth = () => {
 		});
 		
 	};
-	console.log(formData)
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		await createAuthUserWithEmailAndPassword(email, password)
+	};
+	const handleSignIn = async () => {
+		const { email, password } = formData;
+		await signInAuthWithEmailAndPassword(email, password);
+
+	};
+	useEffect(() => {
+		const addUser = async () => {
+			await addNewUserToUsersDb(currentUser, formData);
+		}
+		addUser();
+	},[currentUser])
+
+	const handleSignOut = () => {
+		logUserOut();
 	};
 	return (
 		<div className='auth-container'>
@@ -34,13 +49,14 @@ const Auth = () => {
 			</div>
 			<div className='innerContent'>
 				<button>Register</button>
-				<button>Sign In</button>
+				{currentUser ? (<button onClick={handleSignOut}>Sign Out</button>) : (<button onClick={handleSignIn}>Sign In</button>)}
+				
 				<p>Some SHit</p>
 				<p>Some More shit</p>
 				<form onSubmit={handleSubmit}>
-					<input type='text' name='fullName' value={fullName} onChange={handleOnChange}/>
-					<input type='email' name='email' value={email} onChange={handleOnChange}/>
-					<input type='password' name='password' value={password} onChange={handleOnChange} />
+					<input type='text' name='fullName' value={fullName} onChange={handleOnChange} required/>
+					<input type='email' name='email' value={email} onChange={handleOnChange} required/>
+					<input type='password' name='password' value={password} onChange={handleOnChange} required />
 					<button type="submit">Submit</button>
 				</form>
 			</div>

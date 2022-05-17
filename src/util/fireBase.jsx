@@ -12,12 +12,8 @@ import {
 import {
 	getFirestore,
 	doc,
-	getDoc,
 	setDoc,
-	collection,
-	writeBatch,
-	getDocs,
-	query,
+	
 } from 'firebase/firestore';
 
 //import {  getAnalytics } from 'firebase/analytics';
@@ -44,27 +40,6 @@ export const logUserOut = () => signOut(auth);
 //db stuff m
 export const db = getFirestore();
 
-export const addCollectionAndDocuments = async (
-	collectionKey,
-	objectsToAdd
-) => {
-	const collectionRef = collection(db, collectionKey);
-	const batch = writeBatch(db);
-	//builds the batch can be used to send single transactions??
-	objectsToAdd.forEach((object) => {
-		const docRef = doc(collectionRef, object.title.toLowerCase());
-		batch.set(docRef, object);
-	});
-
-	await batch.commit();
-	console.log('done');
-};
-
-//set single data value maybe??
-//db.collection('users').doc(user_id).set({foo:'bar'}, {merge: true})
-export const createAuthUserDoc = async (userAuth, additionalInfo) => {
-};
-
 //password stuff
 export const resetUserPassword = ({ email }) => {
 	sendPasswordResetEmail(auth, email);
@@ -83,6 +58,23 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
 export const onAuthStateChangedListener = (callback) => {
 	onAuthStateChanged(auth, callback);
 	
+	
 };
 
 //get data from firestore
+//add user to database users
+
+export const addNewUserToUsersDb = async (user, userData) => {
+	const { fullName, email } = userData;
+	console.log(user, fullName)
+	console.log(auth)
+	if (!auth) return;
+	await setDoc(doc(db, "users", user.uid), {
+		name: fullName,
+		email: email,
+
+	}, { merge: true });
+	
+}
+
+//end db stuff

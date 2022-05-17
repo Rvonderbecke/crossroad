@@ -1,5 +1,4 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 
 //my stuff
 import InfoCard from '../components/info-card.component';
@@ -8,27 +7,27 @@ const cardInfo = [
 	{
 		imageURL: 'images/yellowTape',
 		title: 'Basic Movements',
-		description: 'Yellow tape',
+		description: 'Yellow Tape',
 	},
 	{
 		imageURL: 'images/yellowTape',
 		title: 'Kicking Combinations',
-		description: 'Red tape',
+		description: 'Red Tape',
 	},
 	{
 		imageURL: 'images/yellowTape',
 		title: 'Poomsae / Forms',
-		description: 'Green tape',
+		description: 'Green Tape',
 	},
 	{
 		imageURL: 'images/yellowTape',
 		title: 'Breaking Techniques',
-		description: 'Blue tape',
+		description: 'Blue Tape',
 	},
 	{
 		imageURL: 'images/yellowTape',
 		title: 'Verbal Commands',
-		description: 'Brown tape',
+		description: 'Brown Tape',
 	},
 ];
 
@@ -37,29 +36,32 @@ const Dashboard = () => {
 		<div className='dashboard-container'>
 			<div className='sideBar'>
 				<div className='dots'>
-					<span>&#8226</span>
-					<span>&#8226</span>
-					<span>&#8226</span>
-					<span>&#8226</span>
-					<span>&#8226</span>
-					<span>&#8226</span>
+					<div class='one'>&#8226;</div>
+					<div class='two'>&#8226;</div>
+					<div class='three'>&#8226;</div>
+					<div class='four'>&#8226;</div>
+					<div class='five'>&#8226;</div>
+					<div class='six'>&#8226;</div>
 				</div>
-				<span>X</span>
+				<span className='x'>&#x2715;</span>
 				<ul>
 					<li>
-						<span>Image</span>
+						<img class="calendar" src='/images/calendar.png' alt='' />
 						<p>Calander</p>
 					</li>
 					<li>
-						<span>Image</span>
+						<img class="reg" src='/images/registerOnline.png' alt='' />
+
 						<p>Online Registration</p>
 					</li>
 					<li>
-						<span>Image</span>
+						<img class="event" src='/images/events.png' alt='' />
+
 						<p>Event Sign</p>
 					</li>
 					<li>
-						<span>Image</span>
+						<img class="user" src='/images/user.png' alt='' />
+
 						<p>Account Profile</p>
 					</li>
 				</ul>

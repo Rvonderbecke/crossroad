@@ -1,0 +1,17 @@
+.cardBody {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 1rem;
+    padding-top: .5rem;
+    box-shadow: .15rem .15rem .3rem grey;
+    
+}
+h3 {
+    font-family: $font-primary-heading;
+    font-size: 1.65rem;
+}
+
+p {
+    font-family: $font-primary-paragraph;
+    font-size: 1.5rem;
+}

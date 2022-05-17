@@ -1,0 +1,50 @@
+.sideBar {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	width: 30rem;
+
+	ul {
+		list-style-type: none;
+	}
+	li {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+	}
+	img {
+		width: 2rem;
+        margin-right: 1rem;
+	}
+}
+
+.dots {
+	max-width: 75%;
+	display: flex;
+	justify-content: space-around;
+	margin: 5rem 0 0 1rem;
+	font-size: 2rem;
+}
+.one {
+	color: yellow;
+}
+.two {
+	color: orangered;
+}
+.three {
+	color: green;
+}
+.four {
+	color: purple;
+}
+.five {
+	color: blue;
+}
+.six {
+	color: brown;
+}
+.x {
+	text-align: right;
+	margin: 1rem 1rem 1rem 0;
+	font-size: 2rem;
+}

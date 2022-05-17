@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from 'react';
-import { onAuthStateChangedListener, createAuthUserWithEmailAndPassword } from '../util/fireBase';
+import { onAuthStateChangedListener} from '../util/fireBase';
 
 export const UserContext = createContext({
     currentUser: null,
@@ -17,10 +17,11 @@ export const UserProvider = ({ children }) => {
 	useEffect(() => {
 		const unsubscribe = onAuthStateChangedListener((user) => {
 			if (user) {
-				console.log(user)
+				console.log(user.uid)
 			}
 			setUser(user)
 		});
+
 		return unsubscribe;
 	}, []);
 
