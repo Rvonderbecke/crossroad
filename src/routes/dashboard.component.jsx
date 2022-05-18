@@ -1,4 +1,6 @@
-import React from 'react';
+import { useContext } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { UserContext } from '../contexts/userContext';
 
 //my stuff
 import InfoCard from '../components/info-card.component';
@@ -32,6 +34,8 @@ const cardInfo = [
 ];
 
 const Dashboard = () => {
+	const { currentUser } = useContext(UserContext);
+	const nav = useNavigate();
 	return (
 		<div className='dashboard-container'>
 			<div className='sideBar'>
@@ -46,23 +50,24 @@ const Dashboard = () => {
 				<span className='x'>&#x2715;</span>
 				<ul>
 					<li>
-						<img class="calendar" src='/images/calendar.png' alt='' />
+						<img class='calendar' src='/images/calendar.png' alt='' />
 						<p>Calander</p>
 					</li>
 					<li>
-						<img class="reg" src='/images/registerOnline.png' alt='' />
+						<img class='reg' src='/images/registerOnline.png' alt='' />
 
 						<p>Online Registration</p>
 					</li>
 					<li>
-						<img class="event" src='/images/events.png' alt='' />
+						<img class='event' src='/images/events.png' alt='' />
 
 						<p>Event Sign</p>
 					</li>
 					<li>
-						<img class="user" src='/images/user.png' alt='' />
-
-						<p>Account Profile</p>
+						<NavLink to='/user/profile'>
+							<img class='user' src='/images/user.png' alt='' />
+							Account Profile
+						</NavLink>
 					</li>
 				</ul>
 			</div>
