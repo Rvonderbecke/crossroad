@@ -1,12 +1,10 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
 //my stuff
 import Navigation from './navigation.component';
-import DropBox from './dropbox.component';
 
 const Header = () => {
-	const [showDrop, setShowDrop] = useState(false);
 	return (
 		<Fragment>
 			<div className='header-container'>
@@ -17,10 +15,6 @@ const Header = () => {
 					</div>
 					<div className='nav'>
 						<h1>Crossroad Family Center</h1>
-						<div className='dropBox-label'>
-							<span>Programs &#11167;</span>
-							{showDrop && <DropBox />}
-						</div>
 						<Navigation />
 					</div>
 				</div>

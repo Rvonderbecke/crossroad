@@ -5,7 +5,9 @@ import { UserContext } from '../contexts/userContext';
 import { logUserOut } from '../util/fireBase';
 
 const Navigation = () => {
-  const { currentUser, userData } = useContext(UserContext);
+	const { currentUser, userData } = useContext(UserContext);
+	
+	
   const nav = useNavigate();
 
 	const handleSignOut = () => {
@@ -17,11 +19,11 @@ const Navigation = () => {
 		<div className='navigation-container'>
 			{!currentUser ? (
 				<Link to='auth'>
-					<button>Login</button>
-					<button>Register</button>
+					<button>Sign In</button>
+					<button>Sign Up</button>
 				</Link>
 			) : (
-					<button onClick={handleSignOut}>Logout</button>
+					<button onClick={handleSignOut}>Welcome {userData && userData.profile.name}, Logout</button>
 			)}
 		</div>
 	);

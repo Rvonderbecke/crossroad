@@ -59,14 +59,24 @@ export const onAuthStateChangedListener = (callback) => {
 
 export const addNewUserCollectionToDb = async (user, userData) => {
 	const { name, phoneNumber, email, address } = userData;
-	await setDoc(doc(db, 'users', user.uid), {
-		profile: {
-			name,
-			email,
-			phoneNumber,
-			address
+	await setDoc(
+		doc(db, 'users', user.uid),
+		{
+			profile: {
+				name,
+				email,
+				phoneNumber,
+				address,
+			},
 		},
-	}, {merge: true}).catch((err)=>console.log(err.message));
+		{ merge: true }
+	).catch((err) => console.log(err.message));
+};
+export const addNewBillsCollectionToDb = async (user, userData) => {
+	await setDoc(doc(db, 'users', user.uid), { bills: userData }, { merge: true })
+		.catch(
+		(err) => console.log(err.message)
+	);
 };
 
 export const getCurrentUserData = async (user) => {

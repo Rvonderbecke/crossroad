@@ -11,6 +11,7 @@ const emptyUser = {
 
 const Auth = () => {
 	const [formData, setForm] = useState(emptyUser);
+	const { setUserData } = useContext(UserContext);
 	const nav = useNavigate();
     
 	const {  email, password, confirmPassword } = formData;
