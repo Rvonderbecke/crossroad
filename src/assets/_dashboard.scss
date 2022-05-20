@@ -1,6 +1,5 @@
 .dashboard-container {
 	display: flex;
-  
 }
 
 .main-content {
@@ -19,7 +18,7 @@
 	position: relative;
 	height: 60px;
 }
- 
+
 .nav-container .checkbox {
 	position: absolute;
 	display: block;
@@ -35,7 +34,7 @@
 .nav-container .hamburger-lines {
 	display: block;
 	height: 26px;
-	width: 30px;
+	width: 32px;
 	position: absolute;
 	top: 17px;
 	left: 15px;
@@ -47,7 +46,7 @@
 
 .nav-container .hamburger-lines .line {
 	display: block;
-	height: 5px;
+	height: 4px;
 	width: 100%;
 	border-radius: 10px;
 	background: #0e2431;
@@ -72,7 +71,7 @@
 	// box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
 	height: 50rem;
 	width: 20rem;
-	transform: translate(-80%);
+	transform: translate(-150%);
 	display: flex;
 	flex-direction: column;
 	margin-top: 1rem;
@@ -81,48 +80,85 @@
 	text-align: center;
 	background-color: #E2F9FF;
   box-shadow: 3px 1px 6px rgba(0, 0, 0, 0.397);
-  .cal, .reg, .event, .profile {
-    border: none;
-    margin-left: 2rem;
-    width: 4rem;
-    height: 4rem;
-    background-repeat:no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    background-color: transparent;
-  }
-  #cal, #reg, #event, #profile {
-    transform: translateY(2.5rem);
-    font-family: $font-primary-paragraph;
-    font-size: 1.5rem;
-    text-align: left;
-    margin-left: 8rem;
-    
-  }
     .cal{
         background-image: url('/assets/calendar.png');
+        margin-left: 2rem;
+        width: 2rem;
+        height: 2rem;
+        object-fit: scale-down;
+        background-repeat:no-repeat;
+        cursor: pointer;
+    }
+    #cal{
+        transform: translateY(1.5rem);
     }
     .reg{
         background-image: url('/assets/registerOnline.png');
+        margin-left: 2rem;
+        width: 2rem;
+        height: 2rem;
+        object-fit: scale-down;
+        background-repeat:no-repeat;
+        cursor: pointer;
     }
-    .event{
-        background-image: url('/assets/events.png');
+    #reg{
+        transform: translateY(1.5rem);
     }
-    .profile {
-        background-image: url('/assets/user.png');
+    .cal{
+        background-image: url('/assets/calendar.png');
+        margin-left: 2rem;
+        width: 2rem;
+        height: 2rem;
+        object-fit: scale-down;
+        background-repeat:no-repeat;
+        cursor: pointer;
+    }
+    #cal{
+        transform: translateY(1.5rem);
+    }
+    .cal{
+        background-image: url('/assets/calendar.png');
+        margin-left: 2rem;
+        width: 2rem;
+        height: 2rem;
+        object-fit: scale-down;
+        background-repeat:no-repeat;
+        cursor: pointer;
+    }
+    #cal{
+        transform: translateY(1.5rem);
     }
     
 }
 
+.sideBar .menu-items li {
+	margin-bottom: 1.2rem;
+	font-size: 1.5rem;
+	font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+	
+  img {
+		height: 1rem;
+    margin-right: 1rem;
+	}
+}
 
+.logo1 {
+	position: absolute;
+	top: 5px;
+	right: 15px;
+	font-size: 1.2rem;
+	color: #0e2431;
+}
 
 .nav-container input[type='checkbox']:checked ~ .menu-items {
 	transform: translateX(0);
 }
 
-
 .nav-container input[type='checkbox']:checked ~ .hamburger-lines .line1 {
- 
 	transform: rotate(45deg);
 }
 
