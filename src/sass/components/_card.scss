@@ -1,17 +1,24 @@
 .cardBody {
-    width: 15rem;
-    height: 15rem;
+    width: 25rem;
+    height: 5rem;
     border-radius: 1rem;
     padding-top: .5rem;
     box-shadow: .15rem .15rem .3rem grey;
+    margin: 3rem;
+    text-align: center;
     
 }
 h3 {
-    font-family: $font-primary-heading;
-    font-size: 1.65rem;
+    font-family: $font-primary-paragraph;
+    font-size: 1.25rem;
+    font-weight: 300;
+    transform:translateY(-2rem);
 }
 
 p {
-    font-family: $font-primary-paragraph;
-    font-size: 1.5rem;
+    font-family: $font-primary-heading;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transform:translateY(-2.75rem);
+  
 }

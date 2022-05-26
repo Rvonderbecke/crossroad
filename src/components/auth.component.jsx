@@ -1,32 +1,35 @@
 import { useState, useContext, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/userContext';
-import { createAuthUserWithEmailAndPassword, signInAuthWithEmailAndPassword, addNewUserToUsersDb
+import {
+	createAuthUserWithEmailAndPassword,
+	signInAuthWithEmailAndPassword,
+	signInWithGoogle,
+	addNewUserToUsersDb,
 } from '../util/fireBase';
 const emptyUser = {
-    email: '',
-    password: '',
-    confirmPassword: ''
-}
+	email: '',
+	password: '',
+	confirmPassword: '',
+};
 
 const Auth = () => {
 	const [formData, setForm] = useState(emptyUser);
 	const { setUserData } = useContext(UserContext);
 	const nav = useNavigate();
-    
-	const {  email, password, confirmPassword } = formData;
-	
+
+	const { email, password, confirmPassword } = formData;
+
 	const handleOnChange = async (e) => {
 		const { name, value } = e.target;
 		await setForm(() => {
-			return { ...formData, [name]: value }
+			return { ...formData, [name]: value };
 		});
-		
 	};
-	const handleSubmit = async (e) => {
+	const handleRegSubmit = async (e) => {
 		e.preventDefault();
-		await createAuthUserWithEmailAndPassword(email, password)
-		nav('/user/dashboard')
+		await createAuthUserWithEmailAndPassword(email, password);
+		nav('/user/dashboard');
 		setForm(emptyUser);
 	};
 	const handleLoginSubmit = async (e) => {
@@ -34,27 +37,76 @@ const Auth = () => {
 		await signInAuthWithEmailAndPassword(email, password);
 		nav('/user/dashboard');
 		setForm(emptyUser);
-	}
+	};
+	const handleGoogleLogin = async () => {
+		await signInWithGoogle();
+	};
 
 	return (
 		<div className='auth-container'>
-			<div className='info'>
-				<span>Already Registered.</span>
+			<div className='logo-container'>
+				<img id='logo' src='/' alt='' />
 			</div>
-			<div className='innerContent'>
-				<button>Register</button>
-				<p>Register</p>
-				<form onSubmit={handleSubmit}>
-					<input type='email' name='email' value={email} onChange={handleOnChange} required/>
-					<input type='password' name='password' value={password} onChange={handleOnChange} autoComplete="new-password" required />
-					<input type='password' name='confirmPassword' value={confirmPassword} onChange={handleOnChange} autoComplete="new-password" required />
-					<button type="submit">Submit</button>
+			<div className='form-container'>
+				<img src='/images/CR_Logo.svg' alt='' className='logo' />
+				<img src='/images/CrLogoBar.png' alt='' className='logoBar' />
+				<h2>Crossroad Family Center</h2>
+				<p>Register Here</p>
+				<form onSubmit={handleRegSubmit}>
+					<input
+						type='email'
+						placeholder='Register your email'
+						name='email'
+						value={email}
+						onChange={handleOnChange}
+						required
+					/>
+					<input
+						type='password'
+						name='password'
+						placeholder='Enter a New Password'
+						value={password}
+						onChange={handleOnChange}
+						autoComplete='new-password'
+						required
+					/>
+					<input
+						type='password'
+						name='confirmPassword'
+						placeholder='Retype Password'
+						value={confirmPassword}
+						onChange={handleOnChange}
+						autoComplete='new-password'
+						required
+					/>
+					<button type='submit'>Register</button>
 				</form>
-				<p>Login</p>
+				<p>Login Here</p>
 				<form onSubmit={handleLoginSubmit}>
-					<input type='email' name='email' value={email} onChange={handleOnChange}  autoComplete="username" required/>
-					<input type='password' name='password' value={password} onChange={handleOnChange} autoComplete="current-password"required />
-					<button type="submit">Submit</button>
+					<input
+						type='email'
+						name='email'
+						placeholder='Registered Email'
+						value={email}
+						onChange={handleOnChange}
+						autoComplete='username'
+						required
+					/>
+					<input
+						type='password'
+						name='password'
+						placeholder='Current Password'
+						value={password}
+						onChange={handleOnChange}
+						autoComplete='current-password'
+						required
+					/>
+					<div className='button-box'>
+						<button type='submit'>Login</button>
+						<button type='button' onClick={handleGoogleLogin} className='googleBtn'>
+							Login with Google
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>
