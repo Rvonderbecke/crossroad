@@ -1,0 +1,196 @@
+// <div className='taekwondo-container'>
+// <div className='side-bar'>
+//     <div className='quiz-box'>
+//
+//         <p>Find out how this program can benefit you with a Quick Quiz.</p>
+//         <button type='button' onClick={handlePopState}>Take Quiz</button>
+//     </div>
+//     <div className='recommendation'></div>
+// </div>
+// <div className='main-content'>
+// <h3>These are the programs we offer</h3>
+//     <div className='self-control'>
+//         <h2>Taekwondo-</h2>
+// <p>Self-Control and basic principles</p>
+// <div className="belts">
+// <div className="white"></div>
+// <p>White Belt</p>
+// <div className="yellow"></div>
+// <p>Yellow Belt</p>
+// <div className="orange"></div>
+// <p>Orange Belt</p>
+// </div>
+//     </div>
+//     <div className='self-awareness'>
+//         <h2>Taekwondo-</h2>
+// <p>Self-Awareness and novice principles</p>
+// <div className="belts">
+// <div className="green"></div>
+// <p>Green Belt</p>
+// <div className="purple"></div>
+// <p>Purple Belt</p>
+// <div className="lightBlue"></div>
+// <p>Light Blue Belt</p>
+// </div>
+
+//     </div>
+//     <div className='strength'>
+//         <h2>Taekwondo-</h2>
+// <p>Strength-of-Character and advanced principles</p>
+// <div className="belts">
+// <div className="darkBlue"></div>
+// <p>Dark Blue Belt</p>
+// <div className="brown"></div>
+// <p>Brown Belt</p>
+// <div className="red"></div>
+// <p>Red Belt</p>
+// </div>
+
+// </div>
+//     <div className='black-belt'>
+//         <h2>Taekwondo-</h2>
+// <p>Strength-of-Character and advanced principles</p>
+// <div className="belts">
+// <div className="black"></div>
+// <p>Black Belt</p>
+
+// </div>
+.taekwondo-container {
+	display: flex;
+    height: 80vh;
+
+	.side-bar {
+		background-color: #156577;
+		width: 20%;
+		height: 30rem;
+		margin: 5rem 0 0 3rem;
+		border-radius: 2rem;
+		.quiz-box {
+			color: white;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+
+			p {
+				padding-top: 4rem;
+				font-family: $font-primary-paragraph;
+				width: 80%;
+			}
+
+			button {
+				background-color: $color-primary-red;
+				color: $color-white;
+				border: none;
+				border-radius: 1rem;
+				font-family: $font-primary-paragraph;
+				font-size: 1.25rem;
+				font-weight: 600;
+				border-radius: 15px;
+				padding: 0.65rem 4rem;
+			}
+		}
+	}
+	.main-content {
+		overflow-y: auto;
+		min-height: 100%;
+		width: 100%;
+        padding-bottom: 15rem;
+
+            h3 {
+                text-align: center;
+                font-family: $font-primary-paragraph;
+                text-transform: uppercase;
+                font-size: 2rem;
+            
+            }
+		.self-control,
+		.self-awareness,
+		.strength,
+		.black-belt {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+            height: 15rem;
+
+			h2 {
+				
+				font-family: $font-primary-heading;
+                font-weight: 500;
+                font-size: 1.5rem;
+             
+			}
+			// grid-template-rows: repeat(4,1fr);
+
+			.belts {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				.belt {
+					padding-bottom: 0.5rem;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					.box {
+						width: 40%;
+						height: 2rem;
+					}
+					p {
+						margin: 0;
+						margin-left: 1rem;
+					}
+				}
+			}
+			.white {
+                border: .05rem solid lightgray;
+				background-color: white;
+			}
+			.yellow {
+				background-color: yellow;
+			}
+			.orange {
+				background-color: orange;
+			}
+			.green {
+				background-color: green;
+			}
+			.purple {
+				background-color: purple;
+			}
+            .lightBlue {
+				background-color: lightBlue;
+			}
+			.darkBlue {
+				background-color: darkBlue;
+			}
+			.brown {
+				background-color: brown;
+			}
+			.red {
+				background-color: red;
+			}
+			.deputy {
+				background-color: white;
+                border: .05px solid lightgray;
+                border-bottom: .8rem solid black;
+                border-top: .8rem solid black;
+                
+               
+			}
+			.black {
+				background-color: black;
+                
+			}
+		}
+		p {
+			grid-column: 1;
+			font-family: $font-primary-paragraph;
+            
+		}
+       
+	}
+    .main-content::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        
+    }
+}

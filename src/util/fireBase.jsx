@@ -78,6 +78,12 @@ export const addNewBillsCollectionToDb = async (user, userData) => {
 		(err) => console.log(err.message)
 	);
 };
+export const addNewProgramsCollectionToDb = async (user, userData) => {
+	await setDoc(doc(db, 'users', user.uid), { programs: userData }, { merge: true })
+		.catch(
+		(err) => console.log(err.message)
+	);
+};
 
 export const getCurrentUserData = async (user) => {
 	const docRef = doc(db, 'users', user.uid);

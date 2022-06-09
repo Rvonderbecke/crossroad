@@ -40,8 +40,7 @@ const cardInfo = [
 
 const Dashboard = () => {
 	const { userData } = useContext(UserContext);
-	console.log(userData)
-
+  
 	
 	const nav = useNavigate();
 	return (
