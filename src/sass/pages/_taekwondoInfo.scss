@@ -73,7 +73,7 @@
 			text-align: center;
 
 			p {
-				padding-top: 4rem;
+				padding-top: 3rem;
 				font-family: $font-primary-paragraph;
 				width: 80%;
 			}
@@ -89,6 +89,11 @@
 				border-radius: 15px;
 				padding: 0.65rem 4rem;
 			}
+		}
+		.recommendation {
+			color: white;
+			font-family: $font-primary-paragraph;
+			margin-left: 2rem;
 		}
 	}
 	.main-content {
@@ -110,7 +115,9 @@
 		.black-belt {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+			grid-column-gap: 3rem;
             height: 15rem;
+			border-top: 2px solid $color-primary-blue;
 
 			h2 {
 				
@@ -137,6 +144,9 @@
 					p {
 						margin: 0;
 						margin-left: 1rem;
+						font-family: $font-primary-paragraph;
+						
+						
 					}
 				}
 			}
@@ -145,28 +155,28 @@
 				background-color: white;
 			}
 			.yellow {
-				background-color: yellow;
+				background-color: $color-primary-yellow;
 			}
 			.orange {
-				background-color: orange;
+				background-color: #FB4A08;
 			}
 			.green {
-				background-color: green;
+				background-color: $color-primary-green;
 			}
 			.purple {
-				background-color: purple;
+				background-color: #741AA8;
 			}
             .lightBlue {
-				background-color: lightBlue;
+				background-color: $color-primary-blue;
 			}
 			.darkBlue {
-				background-color: darkBlue;
+				background-color: #156577;
 			}
 			.brown {
-				background-color: brown;
+				background-color: #8E4D0D;
 			}
 			.red {
-				background-color: red;
+				background-color: $color-primary-red;
 			}
 			.deputy {
 				background-color: white;
@@ -184,6 +194,8 @@
 		p {
 			grid-column: 1;
 			font-family: $font-primary-paragraph;
+			font-size: 1.15rem;
+			font-weight: 300;
             
 		}
        

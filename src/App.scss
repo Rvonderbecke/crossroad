@@ -3,10 +3,11 @@
 @import "sass/base/typography";
 @import "sass/base/utilities";
 
+@import "sass/components/auth";
 @import "sass/components/buttons";
 @import "sass/components/card";
 @import "sass/components/dropBox";
-@import "sass/components/auth";
+@import "sass/components/popUpBox";
 
 @import "sass/layout/body";
 @import "sass/layout/header";

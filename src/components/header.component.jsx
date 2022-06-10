@@ -1,5 +1,5 @@
 import { Fragment, useState, useLayoutEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 
 //my stuff
 import Navigation from './navigation.component';
@@ -18,7 +18,9 @@ const Header = () => {
 				<div className='header-container'>
 					<div className='logoBox'>
 						<div className='innerBox'>
-							<img src='/images/CR_Logo.png' alt='' className='logo' />
+							<Link to='/'>
+								<img src='/images/CR_Logo.png' alt='' className='logo' />
+							</Link>
 							<img src='/images/CrLogoBar.png' alt='' className='logoBar' />
 						</div>
 						<div className='nav'>

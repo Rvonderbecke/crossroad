@@ -1,0 +1,51 @@
+
+
+
+
+.pop-up-quiz {
+    transform: translateX(22rem);
+    background-color: white;
+    outline: 2rem solid $color-primary-blue;
+    border-radius: 1rem;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+
+    
+   form {
+   
+   }
+    h2 {
+        margin-left: 7.4rem;
+        margin-top: 3rem;
+        text-transform: uppercase;
+    }
+
+    ul {
+        list-style: none;
+    }
+    
+        p {
+          margin:1rem 1rem 1rem 5rem ;
+          font-family: $font-primary-paragraph; 
+          font-size: 1.3rem; 
+            
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            
+        }
+
+        button {
+            background-color: $color-primary-red;
+            color: white;
+            border: none;
+            padding: .5rem 2rem;
+            border-radius: .65rem;
+            transform: translateX(46rem);
+        }
+        
+    }
+  
