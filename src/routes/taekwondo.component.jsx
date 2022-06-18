@@ -1,25 +1,95 @@
-import { connectFirestoreEmulator } from 'firebase/firestore';
-import React, { useState } from 'react';
-import { quizResults } from '../util/logic';
+import React, { useState, useLayoutEffect } from 'react';
 
 const Taekwondo = () => {
 	const [formData, setFormData] = useState({});
 	const [popQuiz, popQuizState] = useState(false);
 	const [quizSection, setQuizSection] = useState(true);
-	const [popInfo, popInfoState] = useState(false);
+	const [popInfo, popInfoState] = useState({
+		open: false,
+		quizScore: 9,
+	});
+	//quiz results
+	const QuizResults = ({quizScore}) => {
+		const arr = [];
+		switch (quizScore) {
+			case 1:
+			case 2:
+			case 3:
+				arr.push({
+					title: 'Self-Control',
+					description: 'MON, WED, and FRI 4-5pm',
+				});
+				break;
+			case 4:
+			case 5:
+			case 6:
+				arr.push({
+					title: 'Self-Control',
+					description: 'MON, WED, and FRI 4-5pm',
+				});
+				arr.push({ title: 'Trip-Outreach', description: 'SAT 10am' });
+				break;
+			case 7:
+			case 8:
+			case 9:
+				arr.push({
+					title: 'Self-Control',
+					description: 'MON, WED, and FRI 4-5pm',
+				});
+				arr.push({ title: 'Trip-Outreach', description: 'SAT 10am' });
+				arr.push({
+					title: 'Private Lessons',
+					description: 'Times are scheduled per student.',
+				});
+				break;
+			case 10:
+				arr.push({
+					title: 'Self-Control',
+					description: 'MON, WED, and FRI 4-5pm',
+				});
+				arr.push({ title: 'Trip-Outreach', description: 'SAT 10am' });
+				arr.push({
+					title: 'Private Lessons',
+					description: 'Times are scheduled per student.',
+				});
+				arr.push({ title: 'Yotae', description: 'TUES & THURS 6pm' });
+				break;
+			default:
+				arr.push({
+					title: 'Try Again',
+					description: 'Please complete accurately',
+				});
+				break;
+		}
+		return (
+			<>
+				<ol>
+					{arr.map((item, idx) => {
+						return (
+							<li key={idx}>
+								{item.title}- {item.description}
+							</li>
+						);
+					})}
+				</ol>
+			</>
+		);
+	};
+
+	//end quiz results
+	const quizResults = (arr) => {
+		return Object.values(arr).filter((q) => q).length;
+	};
 
 	const handleOnChange = (e) => {
 		const { name, checked } = e.target;
 		setFormData({ ...formData, [name]: checked });
 	};
-
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(formData);
-		const res = await quizResults(formData);
-		console.log(res);
+		popInfoState({ ...popInfo, quizScore: quizResults(formData), open: true });
 		popQuizState(false);
-		setQuizSection(true);
+		setFormData({});
 	};
 
 	const handlePopState = () => {
@@ -28,29 +98,30 @@ const Taekwondo = () => {
 	const handleNext = (e) => {
 		e.preventDefault();
 		setQuizSection(false);
-		document.querySelectorAll('input[type=checkbox]').forEach( el => el.checked = false );
-		
+		document
+			.querySelectorAll('input[type=checkbox]')
+			.forEach((el) => (el.checked = false));
 	};
 
 	return (
 		<div className='taekwondo-container'>
 			<div className='side-bar'>
-				<div className='quiz-box'>
-					<p>
-						Find out the programs that will benefit you the most with a Quick
-						Quiz.
-					</p>
-					<button type='button' onClick={handlePopState}>
-						Take Quiz
-					</button>
-				</div>
-				<div className='recommendation'>
-					<p>Your score is 10 your recommended programs are</p>
-					<ol>
-						<li>Someshit</li>
-						<li>Someshit</li>
-					</ol>{' '}
-				</div>
+				{popInfo.open ? (
+					<div className='recommendation'>
+						<QuizResults quizScore={popInfo.quizScore} />
+						<button>Enroll</button>
+					</div>
+				) : (
+					<div className='quiz-box'>
+						<p>
+							Find out the programs that will benefit you the most with a Quick
+							Quiz.
+						</p>
+						<button type='button' onClick={handlePopState}>
+							Take Quiz
+						</button>
+					</div>
+				)}
 			</div>
 			<div className='main-content'>
 				<h3>Behavioral Taekwondo Programs</h3>
@@ -148,18 +219,6 @@ const Taekwondo = () => {
 						</div>
 					</div>
 				</div>
-				{popInfo && (
-					<div className='info-container'>
-						<div>X</div>
-						<h2>Taekwondo and self-Control</h2>
-						<p>
-							A blend of behavioral lesson that enable our students to balance
-							self management skills in order to achieve in taekwondo and life.{' '}
-						</p>
-						<p>THis class is held Mon-Fri 4-5-pm</p>
-						<button>Enroll</button>
-					</div>
-				)}
 			</div>
 			{popQuiz && (
 				<div className='pop-up-quiz'>
@@ -237,7 +296,7 @@ const Taekwondo = () => {
 							</>
 						) : (
 							<>
-								<div id="section-two" className='section-two'>
+								<div id='section-two' className='section-two'>
 									<ul>
 										<li>
 											<p>
