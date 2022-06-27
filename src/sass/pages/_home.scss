@@ -1,11 +1,65 @@
 
-.home-container {
-    background-image: linear-gradient(to bottom, $color-white, #c5f4ff, #c6f4ff, #7fd7ec, #219ebc, $color-secondary-dark,);  
+
+	.home-container-bottom  {
+  font-family: $font-primary-paragraph;
+
+  .who-we-are, .what-we-do {
     display: flex;
     flex-direction: row;
-    height: 30rem;
+    display: grid;
+    grid-template-rows: 5rem 25rem;
+    border-bottom: .2rem solid $color-primary-blue;
+    
+    h2 {
+      text-transform: uppercase;
+      grid-row: 1;
+      grid-column: 2;
+      text-align: center;
+      margin-top: 4rem;
+    }
 
+    p {
+      margin-top: 5rem;
+     margin-left: 5rem; 
+     grid-row: 2;
+     width: 80%;
+    }
+
+    img {
+      border: 5px solid black;
+      width: 25rem;
+      height: 20rem;
+      align-self: flex-start;
+      margin-left: 5rem;
+      grid-row: 2;
+
+    }
+  }
+  .what-we-do {
+    h2 {
+      grid-column: 1;
+    }
+    img {
+      margin-right: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+.home-container {
+    display: flex;
+    flex-direction: row;
+    // height: 30rem;
+    overflow-y: auto;
+		// min-height: 100%;
+		width: 100%;
+    height: 100%;
    
+}
+
+.home-header {
+  text-align: center;
+  font-family: $font-primary-paragraph;
 }
 
 .image-link-container{
@@ -14,19 +68,17 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
+  height: 25rem;
+  border-bottom: .2rem solid $color-primary-blue;
    
 
   .column{
       display: flex;
       flex-direction: column;
       text-align: center;
-      
-      padding-bottom: 8%;
-
-      h2 {
-        
-        
-      }
+      margin-bottom: 5rem;
+          
+    
   }
 }
 
@@ -38,10 +90,7 @@
     
     img {
         height: 8rem;
-        border: none;
-        
+        border: none; 
     }
-    
-    
-   
+ 
 }

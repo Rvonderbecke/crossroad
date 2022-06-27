@@ -6,7 +6,7 @@ const Taekwondo = () => {
 	const [quizSection, setQuizSection] = useState(true);
 	const [popInfo, popInfoState] = useState({
 		open: false,
-		quizScore: 9,
+		quizScore: 0,
 	});
 	//quiz results
 	const QuizResults = ({quizScore}) => {
@@ -78,7 +78,9 @@ const Taekwondo = () => {
 
 	//end quiz results
 	const quizResults = (arr) => {
-		return Object.values(arr).filter((q) => q).length;
+		
+	return Object.values(arr).length;
+		
 	};
 
 	const handleOnChange = (e) => {
@@ -89,6 +91,7 @@ const Taekwondo = () => {
 		e.preventDefault();
 		popInfoState({ ...popInfo, quizScore: quizResults(formData), open: true });
 		popQuizState(false);
+		quizResults(formData);
 		setFormData({});
 	};
 
@@ -242,8 +245,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Would the student benefit from increased self-confidence?
 											</p>
 											<input
 												type='checkbox'
@@ -254,8 +256,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Would the student benefit from increased mental strength?
 											</p>
 											<input
 												type='checkbox'
@@ -266,8 +267,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Does the student have trouble in large groups?
 											</p>
 											<input
 												type='checkbox'
@@ -278,8 +278,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Does the student need or want private Lesson?
 											</p>
 											<input
 												type='checkbox'
@@ -300,8 +299,7 @@ const Taekwondo = () => {
 									<ul>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												DOes the student have any aggressive behaviors towards himself or others?
 											</p>
 											<input
 												type='checkbox'
@@ -312,8 +310,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Could the student benefit from taking part in community service?
 											</p>
 											<input
 												type='checkbox'
@@ -324,8 +321,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Does the student wish to earn rewards for himself or others?
 											</p>
 											<input
 												type='checkbox'
@@ -336,8 +332,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Would the student enjoy participating in competitions? 
 											</p>
 											<input
 												type='checkbox'
@@ -348,8 +343,7 @@ const Taekwondo = () => {
 										</li>
 										<li>
 											<p>
-												Place a question here it will need to be styled up too
-												two lines?
+												Would the student enjoy extra mental and physical strength training?
 											</p>
 											<input
 												type='checkbox'

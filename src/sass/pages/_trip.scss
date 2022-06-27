@@ -1,0 +1,75 @@
+// <div className='afterschool-container'>
+// <div className='side-bar'></div>
+// <p>Earn points to shop our rewards catalog!</p>
+// <img src="" alt="" />
+// <button>Donate</button>
+// <div className='main-content'>
+//     <h2>What is T.R.I.P Outreach?</h2>
+//     <p>introduction paragraph</p>
+//     <p>what we do paragraph</p>
+//     <div className='buttons'>
+//         <button>Enroll</button>
+//         <button>Schedule</button>
+//         <button>Events</button>
+
+.afterschool-container {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    height: 79vh;
+    
+
+    .side-bar {
+        background-color: #156577;
+        width: 90%;
+		height: 30rem;
+		margin: 5rem 0 0 3rem;
+		border-radius: 2rem;
+        text-align: center;
+        font-family: $font-primary-paragraph;
+        display: flex;
+        flex-direction: column;
+        
+        p{
+          color: white;
+          font-size: 1.5rem;
+          margin: 3rem;   
+        }
+
+        img {}
+
+        button {
+            align-self: center;
+            background-color: red;
+		    color: $color-white;
+		    border: none;
+		    border-radius: 10px;
+		    font-size: 1rem;
+		    margin: 1rem;
+		    padding: .5rem 1.5rem;
+        }
+    }
+
+    .main-content {
+        
+        text-align: center;
+
+        h2 {
+
+        }
+
+        p {
+
+        }
+
+        button {
+        background-color: red;
+		color: $color-white;
+		border: none;
+		border-radius: 10px;
+		font-size: 1rem;
+		margin: 1rem;
+		padding: .5rem 1.5rem;
+		
+        }
+    }
+}
