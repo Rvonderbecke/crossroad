@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-
+import SideBar from '../components/SideBar.js'
 const Taekwondo = () => {
 	const [formData, setFormData] = useState({});
 	const [popQuiz, popQuizState] = useState(false);
@@ -105,27 +105,10 @@ const Taekwondo = () => {
 			.querySelectorAll('input[type=checkbox]')
 			.forEach((el) => (el.checked = false));
 	};
-
+	const menuArray = [];
 	return (
 		<div className='taekwondo-container'>
-			<div className='side-bar'>
-				{popInfo.open ? (
-					<div className='recommendation'>
-						<QuizResults quizScore={popInfo.quizScore} />
-						<button>Enroll</button>
-					</div>
-				) : (
-					<div className='quiz-box'>
-						<p>
-							Find out the programs that will benefit you the most with a Quick
-							Quiz.
-						</p>
-						<button type='button' onClick={handlePopState}>
-							Take Quiz
-						</button>
-					</div>
-				)}
-			</div>
+			<SideBar menuArray={menuArray} />
 			<div className='main-content'>
 				<h3>Behavioral Taekwondo Programs</h3>
 				<div className='self-control'>
@@ -365,3 +348,19 @@ const Taekwondo = () => {
 };
 
 export default Taekwondo;
+// {popInfo.open ? (
+// 	<div className='recommendation'>
+// 		<QuizResults quizScore={popInfo.quizScore} />
+// 		<button>Enroll</button>
+// 	</div>
+// ) : (
+// 	<div className='quiz-box'>
+// 		<p>
+// 			Find out the programs that will benefit you the most with a Quick
+// 			Quiz.
+// 		</p>
+// 		<button type='button' onClick={handlePopState}>
+// 			Take Quiz
+// 		</button>
+// 	</div>
+// )}

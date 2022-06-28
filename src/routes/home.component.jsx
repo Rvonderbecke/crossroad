@@ -6,21 +6,28 @@ const navImages = [
 		title: 'Taekwondo',
 		imageURL: 'images/belt.svg',
 		location: 'taekwondo',
+		disabled: false
 	},
 	{
 		title: 'Trip Outreach',
 		imageURL: 'images/gradCap.svg',
 		location: 'afterschool',
+		disabled: false
+
 	},
 	{
 		title: 'Behavioral Health',
 		imageURL: 'images/heart.svg',
 		location: 'behavioral',
+		disabled: true
+
 	},
 	{
 		title: 'Foster Center',
 		imageURL: 'images/home.svg',
 		location: 'foster',
+		disabled: true
+
 	},
 ];
 

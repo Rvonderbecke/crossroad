@@ -1,75 +1,201 @@
-// <div className='afterschool-container'>
-// <div className='side-bar'></div>
-// <p>Earn points to shop our rewards catalog!</p>
-// <img src="" alt="" />
-// <button>Donate</button>
-// <div className='main-content'>
-//     <h2>What is T.R.I.P Outreach?</h2>
-//     <p>introduction paragraph</p>
-//     <p>what we do paragraph</p>
-//     <div className='buttons'>
-//         <button>Enroll</button>
-//         <button>Schedule</button>
-//         <button>Events</button>
-
 .afterschool-container {
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    height: 79vh;
-    
+	display: flex;
+	height: 80vh;
 
-    .side-bar {
-        background-color: #156577;
-        width: 90%;
-		height: 30rem;
-		margin: 5rem 0 0 3rem;
-		border-radius: 2rem;
-        text-align: center;
-        font-family: $font-primary-paragraph;
-        display: flex;
-        flex-direction: column;
-        
-        p{
-          color: white;
-          font-size: 1.5rem;
-          margin: 3rem;   
-        }
+	padding-bottom: 3rem;
 
-        img {}
 
-        button {
-            align-self: center;
-            background-color: red;
-		    color: $color-white;
-		    border: none;
-		    border-radius: 10px;
-		    font-size: 1rem;
-		    margin: 1rem;
-		    padding: .5rem 1.5rem;
-        }
-    }
+	.main-content {
+		font-family: $font-primary-paragraph;
+		text-align: center;
+		overflow-y: auto;
+		min-height: 100%;
+		width: 100%;
 
-    .main-content {
-        
-        text-align: center;
+		h2 {
+			text-transform: uppercase;
+			margin-left: 3rem;
+		}
 
-        h2 {
+		p {
+			color: black;
+			font-size: 1.5rem;
+			margin: 0 5rem 0 5rem;
+		}
+	}
+}
 
-        }
+.nav-container {
+	display: block;
+	position: relative;
+	height: 60px;
+}
 
-        p {
+.nav-container .checkbox {
+	position: absolute;
+	display: block;
+	height: 32px;
+	width: 52px;
+	top: 20px;
+	left: 15px;
+	z-index: 5;
+	opacity: 0;
+	cursor: pointer;
+}
 
-        }
+.nav-container .hamburger-lines {
+	display: block;
+	height: 26px;
+	width: 30px;
+	position: absolute;
+	top: 17px;
+	left: 15px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 
-        button {
-        background-color: red;
-		color: $color-white;
-		border: none;
-		border-radius: 10px;
-		font-size: 1rem;
-		margin: 1rem;
-		padding: .5rem 1.5rem;
-		
-        }
-    }
+.nav-container .hamburger-lines .line {
+	display: block;
+	height: 5px;
+	width: 100%;
+	border-radius: 10px;
+	background: #0e2431;
+}
+
+.nav-container .hamburger-lines .line1 {
+	transform-origin: 0% 0%;
+	transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+	transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+	transform-origin: 0% 100%;
+	transition: transform 0.4s ease-in-out;
+}
+
+.sideBar .menu-items {
+	padding-top: 100px;
+	// box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+	height: 200rem;
+	width: 20rem;
+	transform: translate(-80%);
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+	border-radius: 0 0 0 25px;
+	transition: transform 0.5s ease-in-out;
+	text-align: center;
+	background-color: #e2f9ff;
+	box-shadow: 3px 1px 6px rgba(0, 0, 0, 0.397);
+
+	.cal {
+		background-image: url('/assets/calendar.png');
+	}
+	.reg {
+		background-image: url('/assets/registerOnline.png');
+	}
+	.event {
+		background-image: url('/assets/Events.svg');
+	}
+	.profile {
+		background-image: url('/assets/user.png');
+	}
+	.trip {
+		background-image: url('/assets/book.svg');
+	}
+	.dash {
+		background-image: url('/assets/dashboard.svg');
+	}
+	.sch {
+		background-image: url('/assets/schedule.svg');
+	}
+	.tkd {
+		background-image: url('/assets/tkd.svg');
+	}
+}
+
+.nav-container input[type='checkbox']:checked ~ .menu-items {
+	transform: translateX(0);
+}
+
+.nav-container input[type='checkbox']:checked ~ .hamburger-lines .line1 {
+	transform: rotate(45deg);
+}
+
+.nav-container input[type='checkbox']:checked ~ .hamburger-lines .line2 {
+	transform: scaleY(0);
+}
+
+.nav-container input[type='checkbox']:checked ~ .hamburger-lines .line3 {
+	transform: rotate(-45deg);
+}
+
+.nav-container input[type='checkbox']:checked ~ .logo {
+	display: none;
+}
+
+///testing
+.menuSymbol {
+	border: none;
+	margin-left: 2rem;
+	width: 3rem;
+	height: 2rem;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	background-color: transparent;
+}
+.symbolLabel {
+	transform: translateY(2rem);
+	font-family: $font-primary-paragraph;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: left;
+	margin-left: 6.5rem;
+}
+
+.info-box-container {
+	display: flex;
+	font-family: $font-primary-paragraph;
+	margin: 5rem 0 0 5rem;
+
+	.bigImage {
+		img {
+			width: 30rem;
+			border-radius: 2rem;
+		}
+	}
+
+	.additionalContent {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		h2 {
+			text-transform: uppercase;
+			margin-left: 0;
+		}
+
+		img {
+			width: 5rem;
+			margin: 2rem;
+		}
+
+		p {
+			padding-left: 7rem;
+			margin-left: 0;
+		}
+	}
+
+	
+}
+.main-content::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	
 }
