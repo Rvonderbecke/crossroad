@@ -11,6 +11,8 @@ import Afterschool from './routes/afterschool.component';
 import Taekwondo from './routes/taekwondo.component';
 import Admin from './routes/admin.component';
 import Profile from './routes/profile.component';
+import Thankyou from './routes/Thankyou';
+import JustCanceled from './routes/justCanceled';
 import RewardsCatalog from './routes/afterschoolRoutes/RewardsCatolog.js';
 import Events from './routes/afterschoolRoutes/Events.js';
 import TripDash from './routes/afterschoolRoutes/TripDash.js';
@@ -34,6 +36,9 @@ function App() {
 				</Route>
 				<Route path='/taekwondo' element={<Taekwondo />} />
 				<Route path='/admin' element={<Admin />} />
+				<Route path='/canceled' element={<Admin />} />
+				<Route path='/thankyou' element={<Admin />} />
+
 			</Route>
 		</Routes>
 	);
