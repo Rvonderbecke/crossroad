@@ -36,8 +36,8 @@ function App() {
 				</Route>
 				<Route path='/taekwondo' element={<Taekwondo />} />
 				<Route path='/admin' element={<Admin />} />
-				<Route path='/canceled' element={<Admin />} />
-				<Route path='/thankyou' element={<Admin />} />
+				<Route path='/canceled' element={<JustCanceled />} />
+				<Route path='/thankyou' element={<Thankyou />} />
 
 			</Route>
 		</Routes>

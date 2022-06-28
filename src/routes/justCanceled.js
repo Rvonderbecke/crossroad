@@ -1,4 +1,4 @@
-const justCanceled = () => {
+const JustCanceled = () => {
   return (
     <div>justCanceled</div>
   )
