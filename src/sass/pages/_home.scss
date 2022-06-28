@@ -2,6 +2,7 @@
 
 	.home-container-bottom  {
   font-family: $font-primary-paragraph;
+  
 
   .who-we-are, .what-we-do {
     display: flex;
@@ -9,6 +10,7 @@
     display: grid;
     grid-template-rows: 5rem 25rem;
     border-bottom: .2rem solid $color-primary-blue;
+    font-size: 1.25rem;
     
     h2 {
       text-transform: uppercase;
@@ -93,4 +95,71 @@
         border: none; 
     }
  
+}
+
+// <div className="home-footer">
+// 					<div className="donate">
+// 						<h2>Donate</h2>
+// 						<img src="" alt="" />
+// 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+// 						<button>Donate</button>
+// 					</div>
+// 					<div className="contact">
+// 						<h2>Contact us</h2>
+// 						<p><span></span>Phone 7122952103</p>
+// 						<p><span></span>Email admin@crossroadfc.com</p>
+// 						<p><span></span>Facebook @crossroadfc</p>
+// 					</div>
+.home-footer {
+  display: grid;
+  grid-template-columns:50% 50%;
+  
+  
+  .donate {
+    grid-column: 1;
+    border-right: .2rem solid $color-primary-blue;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0 3rem 0 3rem;
+     
+      h2 {
+        text-transform: uppercase;
+
+      }
+      img {
+        width: 5rem;
+      }
+      p {
+        padding-bottom: 2rem;
+      }
+      form {
+        transform: translateX(2rem);
+      }
+  }
+
+  .contact {
+  margin-left: 5rem;
+  font-size: 1.5rem;
+  padding-bottom: 5rem;
+    
+      h2 {
+        text-transform: uppercase;
+        text-align: center;
+        margin-left: -5rem;
+        padding: 0;
+        
+        
+       
+      }
+      p {
+        word-spacing: 1rem;
+        text-align: left;
+        
+      img {
+     width: 3rem;
+     margin: 1rem;
+     transform: translateY(2rem);
+      }}
+  }
+
 }
